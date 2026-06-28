@@ -9,6 +9,7 @@ import com.notesapp.domain.repository.ReminderRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -25,10 +26,7 @@ class ReminderRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getReminderById(id: Long): Reminder? = withContext(ioDispatcher) {
-        reminderDao.getRemindersForNote(id).collect { entities ->
-            return@withContext entities.firstOrNull()?.toDomain()
-        }
-        null
+        reminderDao.getRemindersForNote(id).first().firstOrNull()?.toDomain()
     }
 
     override suspend fun setReminder(reminder: Reminder): Long = withContext(ioDispatcher) {

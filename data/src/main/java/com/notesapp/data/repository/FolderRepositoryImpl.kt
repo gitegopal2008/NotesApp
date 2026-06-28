@@ -9,6 +9,7 @@ import com.notesapp.domain.repository.FolderRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -24,9 +25,7 @@ class FolderRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getFolderById(id: Long): Folder? = withContext(ioDispatcher) {
-        val entity = folderDao.getFolderById(id)
-        entity.collect { e -> return@withContext e?.toDomain() }
-        null
+        folderDao.getFolderById(id).first()?.toDomain()
     }
 
     override suspend fun createFolder(name: String, parentId: Long?): Long = withContext(ioDispatcher) {

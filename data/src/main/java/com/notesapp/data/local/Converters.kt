@@ -16,10 +16,4 @@ class Converters {
     fun toTagsJson(tags: List<String>): String {
         return JSONArray(tags).toString()
     }
-
-    @TypeConverter
-    fun fromTimestamp(value: Long?): Long? = value
-
-    @TypeConverter
-    fun toTimestamp(value: Long?): Long? = value
 }

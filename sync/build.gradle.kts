@@ -30,6 +30,7 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
     implementation(libs.work.manager)
+    implementation(libs.work.manager.hilt)
     implementation(libs.coroutines.android)
     implementation(libs.kotlin.serialization.json)
 }

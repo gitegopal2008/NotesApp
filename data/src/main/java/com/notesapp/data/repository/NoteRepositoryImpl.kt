@@ -58,7 +58,11 @@ class NoteRepositoryImpl @Inject constructor(
         noteDao.softDeleteNote(note.id, System.currentTimeMillis())
     }
 
-    override suspend fun searchNotes(query: String): Flow<List<Note>> {
+    override suspend fun permanentlyDeleteNote(note: Note) = withContext(ioDispatcher) {
+        noteDao.hardDeleteNote(note.id)
+    }
+
+    override fun searchNotes(query: String): Flow<List<Note>> {
         return noteDao.searchNotesFts(query).map { entities -> entities.map { it.toDomain() } }
     }
 

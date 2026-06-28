@@ -9,7 +9,7 @@ data class NotesListUiState(
     val error: String? = null,
     val currentFolderId: Long? = null,
     val currentFolderName: String? = null,
-    val sortOrder: SortOrder = SortOrder.UpdatedAtDesc,
+    val sortOrder: SortOrder = SortOrder.UPDATED_DESC,
     val isGridView: Boolean = false,
     val searchQuery: String = "",
     val isSearchActive: Boolean = false,

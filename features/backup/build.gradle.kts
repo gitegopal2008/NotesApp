@@ -21,6 +21,7 @@ android {
 dependencies {
     implementation(project(":domain"))
     implementation(project(":core"))
+    implementation(project(":data"))
     implementation(project(":designsystem"))
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
@@ -33,6 +34,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     implementation(libs.navigation.compose)
     implementation(libs.coroutines.android)
+    implementation(libs.room.ktx)
     implementation(libs.work.manager)
     implementation(libs.work.manager.hilt)
     testImplementation(libs.junit)

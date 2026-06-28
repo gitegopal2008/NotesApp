@@ -14,6 +14,6 @@ interface NoteRepository {
     suspend fun deleteNote(note: Note)
     suspend fun softDeleteNote(note: Note)
     suspend fun permanentlyDeleteNote(note: Note)
-    suspend fun searchNotes(query: String): Flow<List<Note>>
+    fun searchNotes(query: String): Flow<List<Note>>
     suspend fun getNoteCount(): Int
 }

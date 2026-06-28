@@ -1,6 +1,6 @@
 package com.notesapp.core.extension
 
-import com.notesapp.domain.util.Resource
+import com.notesapp.core.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

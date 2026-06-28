@@ -23,7 +23,7 @@ class EncryptionManager @Inject constructor(
                 )
                     .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
                     .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-                    .setKeySize(MasterKey.DEFAULT_AES_GCM_KEY_SIZE)
+                    .setKeySize(256)
                     .build()
             )
             .build()

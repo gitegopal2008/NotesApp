@@ -1,6 +1,7 @@
 package com.notesapp.data.repository
 
 import android.content.Context
+import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
@@ -17,7 +18,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
-private val Context.dataStore: Preferences by preferencesDataStore(name = "notes_app_prefs")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "notes_app_prefs")
 
 @Singleton
 class UserPreferencesRepositoryImpl @Inject constructor(

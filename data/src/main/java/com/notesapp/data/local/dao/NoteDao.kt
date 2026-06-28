@@ -43,7 +43,7 @@ interface NoteDao {
     @Query("DELETE FROM notes WHERE id = :id")
     suspend fun hardDeleteNote(id: Long)
 
-    @Query("SELECT * FROM notes_fts WHERE notes_fts MATCH :query")
+    @Query("SELECT notes.* FROM notes JOIN notes_fts ON notes.rowid = notes_fts.rowid WHERE notes_fts MATCH :query")
     fun searchNotesFts(query: String): Flow<List<NoteEntity>>
 
     @Query("SELECT COUNT(*) FROM notes WHERE is_deleted = 0")

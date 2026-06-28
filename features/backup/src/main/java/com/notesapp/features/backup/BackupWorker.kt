@@ -15,9 +15,10 @@ class BackupWorker @AssistedInject constructor(
 ) : CoroutineWorker(context, workerParams) {
 
     override suspend fun doWork(): Result {
-        return when (val result = backupManager.createBackup()) {
-            is Result.success -> Result.success()
-            is Result.failure -> Result.retry()
+        return if (backupManager.createBackup().isSuccess) {
+            Result.success()
+        } else {
+            Result.retry()
         }
     }
 
