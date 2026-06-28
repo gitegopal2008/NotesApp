@@ -530,7 +530,7 @@ Your next move: **Approve this plan** to proceed, or **request changes** if any 
 
 ### WAVE 5: Integration, Testing, Polish
 
-- [ ] 15. **Feature integration — wire all modules together**
+- [x] 15. **Feature integration — wire all modules together**
   **What to do:** Ensure all features are connected through the app module:
   1. Register all feature routes in NavGraph
   2. Add all feature bottom nav items in NotesScaffold
